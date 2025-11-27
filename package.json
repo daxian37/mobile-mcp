@@ -18,7 +18,10 @@
     "test": "nyc mocha --require ts-node/register test/*.ts",
     "watch": "tsc --watch",
     "clean": "rm -rf lib",
-    "prepare": "husky"
+    "prepare": "husky",
+    "analyze-video": "python3 analyze_video_quality.py",
+    "analyze-video:ts": "ts-node src/video-analyzer-wrapper.ts",
+    "analyze-video:example": "ts-node examples/video-analysis-example.ts"
   },
   "files": [
     "lib"

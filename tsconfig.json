@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "outDir": "./lib",
+    "rootDir": "./src",
     "strict": true,
-    "module": "CommonJS",
-    "outDir": "./lib"
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "moduleResolution": "node"
   },
-  "include": [
-    "src",
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "lib", "test"]
 }

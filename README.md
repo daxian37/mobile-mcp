@@ -67,6 +67,27 @@ How we help to scale mobile automation:
 - 📊 **Deterministic tool application**: Reduces ambiguity found in purely screenshot-based approaches by relying on structured data whenever possible.
 - 📺 **Extract structured data**: Enables you to extract structred data from anything visible on screen.
 
+## 🎯 Example Scripts
+
+We provide ready-to-use example scripts to help you get started quickly:
+
+### Desktop App Finder
+Intelligent app launcher that finds and launches apps on Android devices by searching through home screen pages.
+
+- 🔍 **Smart Search**: Automatically searches for app icons across multiple home screen pages
+- 🎯 **Precise Targeting**: Uses UI hierarchy to calculate exact icon coordinates
+- 🔄 **Auto Swipe**: Supports left/right swiping to find apps (up to 10 pages)
+- 🌐 **Multi-language**: Works with both Chinese and English app names
+
+**Quick Start:**
+```bash
+cd examples/desktop-app-finder
+chmod +x find-and-launch-app.sh
+./find-and-launch-app.sh "Settings" "com.android.settings"
+```
+
+📖 [View Desktop App Finder Documentation](examples/desktop-app-finder/README.md)
+
 ## 🔧 Available MCP Tools
 
 <details>
@@ -301,6 +322,22 @@ For example, on Android:
 On iOS, you'll need Xcode and to run the Simulator before using Mobile MCP with that simulator instance.
 - `xcrun simctl list`
 - `xcrun simctl boot "iPhone 16"`
+
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICK_START.md)** - Get started in minutes
+- **[Documentation Guide](DOCUMENTATION.md)** - Complete documentation index
+- **[MCP Client Setup](MCP_CLIENT_SETUP.md)** - Configure your MCP client
+- **[Project Structure](PROJECT_STRUCTURE.md)** - Understand the codebase
+- **[使用教程](使用教程.md)** - Detailed Chinese tutorial
+- **[Example Scripts](examples/desktop-app-finder/)** - Ready-to-use automation scripts
+
+## 🔗 Resources
+
+- [GitHub Wiki](https://github.com/mobile-next/mobile-mcp/wiki)
+- [Slack Community](http://mobilenexthq.com/join-slack)
+- [Issue Tracker](https://github.com/mobile-next/mobile-mcp/issues)
+- [Changelog](CHANGELOG.md)
 
 # Thanks to all contributors ❤️
 

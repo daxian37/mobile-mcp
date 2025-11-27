@@ -31,7 +31,7 @@ export class WebDriverAgent {
 		const url = `http://${this.host}:${this.port}/status`;
 		try {
 			const response = await fetch(url);
-			const json = await response.json();
+			const json = await response.json() as any;
 			return response.status === 200 && json.value?.ready === true;
 		} catch (error) {
 			// console.error(`Failed to connect to WebDriverAgent: ${error}`);
@@ -54,7 +54,7 @@ export class WebDriverAgent {
 			throw new ActionableError(`Failed to create WebDriver session: ${response.status} ${errorText}`);
 		}
 
-		const json = await response.json();
+		const json = await response.json() as any;
 		if (!json.value || !json.value.sessionId) {
 			throw new ActionableError(`Invalid session response: ${JSON.stringify(json)}`);
 		}
@@ -80,7 +80,7 @@ export class WebDriverAgent {
 		if (sessionUrl) {
 			const url = `${sessionUrl}/wda/screen`;
 			const response = await fetch(url);
-			const json = await response.json();
+			const json = await response.json() as any;
 			return {
 				width: json.value.screenSize.width,
 				height: json.value.screenSize.height,
@@ -90,7 +90,7 @@ export class WebDriverAgent {
 			return this.withinSession(async sessionUrlInner => {
 				const url = `${sessionUrlInner}/wda/screen`;
 				const response = await fetch(url);
-				const json = await response.json();
+				const json = await response.json() as any;
 				return {
 					width: json.value.screenSize.width,
 					height: json.value.screenSize.height,
@@ -295,7 +295,7 @@ export class WebDriverAgent {
 	public async getScreenshot(): Promise<Buffer> {
 		const url = `http://${this.host}:${this.port}/screenshot`;
 		const response = await fetch(url);
-		const json = await response.json();
+		const json = await response.json() as any;
 		return Buffer.from(json.value, "base64");
 	}
 
@@ -447,7 +447,7 @@ export class WebDriverAgent {
 		return this.withinSession(async sessionUrl => {
 			const url = `${sessionUrl}/orientation`;
 			const response = await fetch(url);
-			const json = await response.json();
+			const json = await response.json() as any;
 			return json.value.toLowerCase() as Orientation;
 		});
 	}
