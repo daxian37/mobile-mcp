@@ -1,0 +1,73 @@
+
+> @mobilenext/mobile-mcp@0.0.1 test
+> nyc mocha --require ts-node/register test/*.ts
+
+
+
+  - should be able to get screenshot
+  android
+    ✔ should be able to get the screen size (123ms)
+    1) should be able to take screenshot
+    ✔ should be able to list apps (125ms)
+    ✔ should be able to open a url (300ms)
+    2) should be able to list elements on screen
+    3) should be able to send keys and tap
+    4) should be able to launch and terminate an app
+    ✔ should handle orientation changes (6187ms)
+
+  iphone-simulator
+    - should be able to swipe
+    - should be able to send keys and press enter
+    - should be able to get the screen size
+    - should be able to get screenshot
+    - should be able to open url
+    - should be able to list apps
+    - should be able to get elements on screen
+    - should be able to launch and terminate app
+    - should throw an error if button is not supported
+
+  png
+    ✔ should be able to parse png
+    ✔ should be able to to detect an invalid png
+
+  Command Service Property Tests
+    Property 11: Click coordinate mapping
+      ✔ should calculate correct device coordinates and send tap command for any click position
+    Property 12: Scaled coordinate transformation
+      ✔ should correctly map click coordinates to actual device coordinates for any scaled screenshot
+    Property 33: Script sequential execution
+      ✔ should run each command sequentially and display progress
+    Script parsing - JSON format
+      5) should parse JSON-formatted commands correctly
+    Script parsing - simple format
+      6) should parse simple space-separated commands correctly
+    Script parsing - comments
+      7) should ignore comment lines
+    Script execution - stop on error
+      8) should stop execution on first error
+    Property 34: Command logging
+      ✔ should show command, parameters, and result in log for any script command execution
+    Property 35: Script error handling
+      ✔ should pause execution, highlight failing command, and display error message for any script error
+
+  Device Service Property Tests
+    Property 3: Device list completeness
+      9) should retrieve and display all available devices including simulators, emulators, and real devices
+------------------------|---------|----------|---------|---------|----------------------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                
+------------------------|---------|----------|---------|---------|----------------------------------
+All files               |   30.06 |    20.89 |   35.66 |   29.74 |                                  
+ android.ts             |   40.09 |    34.56 |   58.33 |   39.72 | ...9,388-449,473,479,511,532-533 
+ ios.ts                 |    17.3 |     4.76 |   11.11 |   17.47 | ...8-230,239-240,247-249,258-265 
+ iphone-simulator.ts    |   19.84 |        0 |   18.91 |   20.32 | 48-281,291                       
+ logger.ts              |   66.66 |        0 |     100 |   61.53 | 5-9                              
+ png.ts                 |     100 |      100 |     100 |     100 |                                  
+ robot.ts               |     100 |      100 |     100 |     100 |                                  
+ web-api.ts             |    17.9 |     5.33 |   25.71 |    17.9 | ...9-498,504-541,547-571,578-608 
+ web-command-service.ts |   42.74 |    36.36 |      50 |    41.4 | ...7,141-249,289-297,326,345-350 
+ web-device-service.ts  |   69.04 |    69.23 |   77.77 |   68.29 | ...4,154,160,178,189-198,214-224 
+ web-robot-factory.ts   |   36.36 |        0 |       0 |   36.36 | 16-28                            
+ web-server.ts          |   62.32 |    24.71 |   65.38 |   62.32 | ...3,266,291-299,319-322,333-351 
+ web-websocket.ts       |    8.94 |        0 |   14.28 |    8.94 | 46-328                           
+ webdriver-agent.ts     |    1.41 |        0 |       0 |    1.42 | 27-451                           
+------------------------|---------|----------|---------|---------|----------------------------------

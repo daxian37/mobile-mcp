@@ -66,6 +66,7 @@ How we help to scale mobile automation:
 - 🧿 **Visual Sense**: Evaluates and analyses what’s actually rendered on screen to decide the next action. If accessibility data or view-hierarchy coordinates are unavailable, it falls back to screenshot-based analysis.
 - 📊 **Deterministic tool application**: Reduces ambiguity found in purely screenshot-based approaches by relying on structured data whenever possible.
 - 📺 **Extract structured data**: Enables you to extract structred data from anything visible on screen.
+- 🌐 **Web Interface**: Browser-based UI for visual device control and automation without command-line tools.
 
 ## 🎯 Example Scripts
 
@@ -87,6 +88,60 @@ chmod +x find-and-launch-app.sh
 ```
 
 📖 [View Desktop App Finder Documentation](examples/desktop-app-finder/README.md)
+
+## 🌐 Web Interface
+
+Control your mobile devices through an intuitive browser-based interface - no command-line required!
+
+The Mobile MCP Web Interface provides a visual way to interact with iOS and Android devices, perfect for:
+- 👀 **Visual Testing** - See device screens in real-time while testing
+- 🎮 **Interactive Control** - Click, swipe, and type directly on device screenshots
+- 📦 **App Management** - Install, launch, and manage apps with a few clicks
+- 📝 **Script Development** - Write and test automation scripts with live feedback
+- 🔍 **UI Inspection** - Explore UI elements and their properties visually
+
+### Quick Start
+
+```bash
+# Install dependencies
+npm install
+cd frontend && npm install && cd ..
+
+# Build and start the web interface
+npm run build:web
+node lib/web-server.js
+```
+
+Then open your browser to `http://localhost:3000`
+
+### Features
+
+- 📱 Real-time device screen viewing with auto-refresh
+- 🖱️ Click-to-tap interaction with coordinate mapping
+- 🎮 Virtual buttons (HOME, BACK, VOLUME, etc.)
+- ⌨️ Text input with submit options
+- 📦 App installation, launch, and management
+- 🔍 UI element inspector with tap-to-interact
+- 📝 Script editor with execution logging
+- 💾 Session save/restore
+- 🔄 WebSocket-based real-time updates
+- 🔐 Optional authentication and HTTPS support
+
+### Configuration
+
+Configure via environment variables or `server.json`:
+
+```env
+WEB_HTTP_PORT=3000              # HTTP server port
+WEB_WS_PORT=3001                # WebSocket port
+WEB_ENABLE_AUTH=false           # Enable authentication
+WEB_AUTH_TOKEN=your-token       # Auth token
+WEB_ENABLE_CORS=true            # Enable CORS
+WEB_CORS_ORIGINS=*              # Allowed origins
+```
+
+📖 **[Complete Web Interface Documentation](frontend/WEB_INTERFACE_README.md)**  
+📖 **[API Reference](frontend/API_DOCUMENTATION.md)**
 
 ## 🔧 Available MCP Tools
 
@@ -144,6 +199,8 @@ More details in our [wiki page](https://github.com/mobile-next/mobile-mcp/wiki) 
 
 
 ## Installation and configuration
+
+### MCP Server Installation
 
 **Standard config** works in most of the tools:
 
@@ -226,6 +283,25 @@ Click <code>Save</code>.
 
 [Read more in our wiki](https://github.com/mobile-next/mobile-mcp/wiki)! 🚀
 
+### Web Interface Installation
+
+For browser-based device control, install and run the web interface:
+
+```bash
+# Clone the repository
+git clone https://github.com/mobile-next/mobile-mcp.git
+cd mobile-mcp
+
+# Install dependencies
+npm install
+cd frontend && npm install && cd ..
+
+# Build and start
+npm run build:web
+node lib/web-server.js
+```
+
+Open `http://localhost:3000` in your browser. See the [Web Interface Guide](frontend/WEB_INTERFACE_README.md) for detailed setup and configuration.
 
 ### 🛠️ How to Use 📝
 
@@ -329,6 +405,8 @@ On iOS, you'll need Xcode and to run the Simulator before using Mobile MCP with 
 - **[Documentation Guide](DOCUMENTATION.md)** - Complete documentation index
 - **[MCP Client Setup](MCP_CLIENT_SETUP.md)** - Configure your MCP client
 - **[Project Structure](PROJECT_STRUCTURE.md)** - Understand the codebase
+- **[Web Interface Guide](frontend/WEB_INTERFACE_README.md)** - Browser-based device control
+- **[Web API Reference](frontend/API_DOCUMENTATION.md)** - REST API and WebSocket documentation
 - **[使用教程](使用教程.md)** - Detailed Chinese tutorial
 - **[Example Scripts](examples/desktop-app-finder/)** - Ready-to-use automation scripts
 

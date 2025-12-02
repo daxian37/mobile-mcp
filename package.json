@@ -13,6 +13,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "tsc && chmod +x lib/index.js",
+    "build:web": "npm run build && cd frontend && npm run build",
+    "dev:web": "npm run build && node lib/web-server.js",
     "lint": "eslint .",
     "fixlint": "eslint . --fix",
     "test": "nyc mocha --require ts-node/register test/*.ts",
@@ -28,10 +30,19 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.13.2",
+    "@tanstack/react-query": "^5.90.11",
+    "autoprefixer": "^10.4.22",
     "commander": "14.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "5.1.0",
     "fast-xml-parser": "5.2.5",
-    "zod-to-json-schema": "3.24.6"
+    "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.1.17",
+    "ws": "^8.18.3",
+    "zod-to-json-schema": "3.24.6",
+    "zustand": "^5.0.8"
   },
   "optionalDependencies": {
     "@mobilenext/mobilecli": "0.0.38"
@@ -41,9 +52,11 @@
     "@eslint/js": "^9.19.0",
     "@stylistic/eslint-plugin": "^3.0.1",
     "@types/commander": "^2.12.0",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.13.10",
+    "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.26.1",
     "@typescript-eslint/utils": "^8.26.1",
@@ -51,6 +64,7 @@
     "eslint-plugin": "^1.0.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-notice": "^1.0.0",
+    "fast-check": "^4.3.0",
     "husky": "^9.1.7",
     "mocha": "^11.1.0",
     "nyc": "^17.1.0",
